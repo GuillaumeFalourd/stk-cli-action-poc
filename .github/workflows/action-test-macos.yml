@@ -1,0 +1,26 @@
+name: Action test MacOS
+
+on:
+  push:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Run STK CLI installation
+        uses: GuillaumeFalourd/stk-cli-action-poc@main
+
+      - run: stk --version
+      
+      - run: stk list
+        continue-on-error: true # until activation code not asked
+
+      # - name: Setup upterm session
+      #   uses: lhotari/action-upterm@v1

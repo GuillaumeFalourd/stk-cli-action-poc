@@ -1,0 +1,35 @@
+name: 'STK CLI Action'
+
+description: 'Github Action to install STK CLI'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check Runner
+      run: echo 🤖 OS runner is $(uname)
+      shell: bash
+
+    - name: Install STK CLI
+      run: |
+        if [[ "$(uname)" = "Linux" ]]; then
+          curl -fsSL https://stk.stackspot.com/install.sh | bash
+          mv /home/runner/.stk/bin/* /usr/local/bin
+        elif [[ "$(uname)" = "Darwin" ]]; then
+          curl -fsSL https://stk.stackspot.com/install.sh | bash
+          mv /Users/runner/.stk/bin/* /usr/local/bin
+        else
+          git clone https://github.com/Microsoft/vcpkg.git
+          cd vcpkg
+          ./bootstrap-vcpkg.sh
+          ./vcpkg integrate install
+          vcpkg install curl[tool]
+          cd $GITHUB_WORKSPACE
+          curl https://stk.stackspot.com/installer/windows/stk.exe --output stk.exe
+          ./stk.exe upgrade
+        fi
+        stk --version   
+      shell: bash
+
+branding:
+    icon: 'terminal'
+    color: 'gray-dark'
