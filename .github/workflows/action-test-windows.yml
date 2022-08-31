@@ -14,36 +14,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  windows:
     runs-on: windows-latest
     steps:
-      - run: |
-          echo $PATH
-          echo $HOME
-        shell: bash
-
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
       
-      - run: |
-          pwd
-          ls -lha
-          cd ..
-          pwd
-          ls -lha
-          cd ..
-          pwd
-          ls -lha
-          cd _temp
-          pwd
-          ls -lha
-          cd ..
-          cd ..
-          pwd
-          ls -lha
-          cd ..
-          pwd
-          ls -lha
+      - run: stk --version
         shell: bash
       
       - run: stk list
