@@ -3,6 +3,7 @@ name: Action test MacOS
 on:
   push:
     paths:
+      - '.github/workflows/action-test-macos.yml'
       - 'action.yml'
   schedule:
     - cron: '0 1 * * *'

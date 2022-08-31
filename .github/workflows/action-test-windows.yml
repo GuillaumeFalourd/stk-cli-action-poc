@@ -3,6 +3,7 @@ name: Action test Windows
 on:
   push:
     paths:
+      - '.github/workflows/action-test-windows.yml'
       - 'action.yml'
   schedule:
     - cron: '0 1 * * *'
@@ -16,10 +17,16 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
+      - run: echo $PATH
+        shell: bash
+
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
       
       - run: |
+          pwd
+          ls -lha
+          cd ..
           pwd
           ls -lha
           cd ..

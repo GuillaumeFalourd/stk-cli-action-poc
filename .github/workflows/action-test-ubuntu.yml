@@ -3,6 +3,7 @@ name: Action test Ubuntu
 on:
   push:
     paths:
+      - '.github/workflows/action-test-ubuntu.yml'
       - 'action.yml'
   schedule:
     - cron: '0 1 * * *'
