@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  macos:
     runs-on: macos-latest
     steps:
       - name: Run STK CLI installation
