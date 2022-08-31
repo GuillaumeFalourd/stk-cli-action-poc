@@ -19,10 +19,16 @@ jobs:
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
       
-      # - run: stk --version
+      - run: |
+          pwd
+          ls -lha
+          cd ..
+          pwd
+          ls -lha
+          cd ..
+          pwd
+          ls -lha
+        shell: bash
       
       - run: stk list
         continue-on-error: true # until activation code not asked
-
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
