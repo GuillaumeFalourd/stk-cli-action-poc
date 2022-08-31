@@ -2,6 +2,8 @@ name: Action test Ubuntu
 
 on:
   push:
+    paths:
+      - 'action.yml'
   schedule:
     - cron: '0 1 * * *'
   workflow_dispatch:
