@@ -17,7 +17,9 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-      - run: echo $PATH
+      - run: |
+          echo $PATH
+          echo $HOME
         shell: bash
 
       - name: Run STK CLI installation
@@ -29,6 +31,13 @@ jobs:
           cd ..
           pwd
           ls -lha
+          cd ..
+          pwd
+          ls -lha
+          cd _temp
+          pwd
+          ls -lha
+          cd ..
           cd ..
           pwd
           ls -lha
