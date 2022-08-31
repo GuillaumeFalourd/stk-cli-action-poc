@@ -28,6 +28,7 @@ runs:
           cd $GITHUB_WORKSPACE
           curl https://stk.stackspot.com/installer/windows/stk.exe --output stk.exe
           ./stk.exe upgrade
+          mv /d/a/stk-cli-action-poc/stk-cli-action-poc/stk.exe /bin
           ./stk.exe --version 
         fi  
       shell: bash
