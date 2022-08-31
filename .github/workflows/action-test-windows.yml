@@ -1,11 +1,11 @@
 name: Action test Windows
 
 on:
-  # push:
-  #   paths:
-  #     - 'action.yml'
-  # schedule:
-  #   - cron: '0 1 * * *'
+  push:
+    paths:
+      - 'action.yml'
+  schedule:
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -14,15 +14,15 @@ concurrency:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
       
-      - run: stk --version
+      # - run: stk --version
       
       - run: stk list
         continue-on-error: true # until activation code not asked
 
-      # - name: Setup upterm session
-      #   uses: lhotari/action-upterm@v1
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
