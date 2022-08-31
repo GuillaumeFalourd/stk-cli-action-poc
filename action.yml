@@ -14,11 +14,9 @@ runs:
         if [[ "$(uname)" = "Linux" ]]; then
           curl -fsSL https://stk.stackspot.com/install.sh | bash
           mv /home/runner/.stk/bin/* /usr/local/bin
-          stk --version 
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install.sh | bash
           mv /Users/runner/.stk/bin/* /usr/local/bin
-          stk --version 
         else
           git clone https://github.com/Microsoft/vcpkg.git
           cd vcpkg
