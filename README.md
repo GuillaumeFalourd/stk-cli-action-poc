@@ -2,4 +2,14 @@
 
 [![Action test Ubuntu](https://github.com/GuillaumeFalourd/stk-cli-action-poc/actions/workflows/action-test-ubuntu.yml/badge.svg)](https://github.com/GuillaumeFalourd/stk-cli-action-poc/actions/workflows/action-test-ubuntu.yml) [![Action test MacOS](https://github.com/GuillaumeFalourd/stk-cli-action-poc/actions/workflows/action-test-macos.yml/badge.svg)](https://github.com/GuillaumeFalourd/stk-cli-action-poc/actions/workflows/action-test-macos.yml) [![Action test Windows](https://github.com/GuillaumeFalourd/stk-cli-action-poc/actions/workflows/action-test-windows.yml/badge.svg)](https://github.com/GuillaumeFalourd/stk-cli-action-poc/actions/workflows/action-test-windows.yml)
 
-POC of a STK CLI GitHub action :octocat:
+GitHub action to install StackSpot CLI :octocat:
+
+## 📚 Usage
+
+_**Note**: This action is supported on all runners operating systems (`ubuntu`, `macos`, `windows`)_
+
+```yaml
+    steps:
+      - uses: GuillaumeFalourd/stk-cli-action-poc@main
+      - run: stk --version
+```
