@@ -28,6 +28,7 @@ runs:
           ./stk.exe upgrade
           mv stk.exe /bin 
         fi
+        stk upgrade
       shell: bash
 
 branding:
