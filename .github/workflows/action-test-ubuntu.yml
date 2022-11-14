@@ -20,6 +20,9 @@ jobs:
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
 
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+
       - name: Login to StackSpot Account
         continue-on-error: true
         run: |
@@ -35,5 +38,3 @@ jobs:
       
       - run: stk list stack
 
-      # - name: Setup upterm session
-      #   uses: lhotari/action-upterm@v1
