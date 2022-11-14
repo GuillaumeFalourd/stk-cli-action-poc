@@ -2,17 +2,6 @@ name: 'STK CLI Action'
 
 description: 'Github Action to install STK CLI'
 
-inputs:
-  client_id:
-    description: Account client id
-    required: true
-  client_key:
-    description: Account client key
-    required: true
-  realm:
-    description: Account realm
-    required: true
-
 runs:
   using: "composite"
   steps:
@@ -39,7 +28,6 @@ runs:
           ./stk.exe upgrade
           mv stk.exe /bin 
         fi
-        stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}  
       shell: bash
 
 branding:
