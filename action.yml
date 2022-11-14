@@ -39,6 +39,7 @@ runs:
           ./stk.exe upgrade
           mv stk.exe /bin 
         fi
+        sleep 5
       shell: bash
 
     - name: Login to StackSpot Account

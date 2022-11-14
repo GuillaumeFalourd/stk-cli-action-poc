@@ -11,12 +11,10 @@ _**Note**: This action is supported on all runners operating systems (`ubuntu`, 
 ```yaml
     steps:
       - uses: GuillaumeFalourd/stk-cli-action-poc@main
-
-      - run: stk login --client-id=$CLIENT_ID --client-key=$CLIENT_KEY --realm=$REALM 
-        env:
-          CLIENT_ID: ${{ secrets.CLIENT_ID}}
-          CLIENT_KEY: ${{ secrets.CLIENT_KEY}}
-          REALM: ${{ secrets.REALM}}
+        with:
+          client_id: ${{ secrets.CLIENT_ID }}
+          client_key: ${{ secrets.CLIENT_KEY }}
+          realm: ${{ secrets.REALM }}
 
       - run: stk --version
 ```
