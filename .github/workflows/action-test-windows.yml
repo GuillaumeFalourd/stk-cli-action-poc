@@ -15,7 +15,10 @@ concurrency:
 
 jobs:
   windows:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        os: [windows-2019, windows-2022]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main

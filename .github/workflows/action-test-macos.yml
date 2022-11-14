@@ -15,7 +15,10 @@ concurrency:
 
 jobs:
   macos:
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [macos-11, macos-12]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
