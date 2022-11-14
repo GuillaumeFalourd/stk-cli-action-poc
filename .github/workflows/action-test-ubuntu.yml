@@ -23,8 +23,8 @@ jobs:
       - name: Login to StackSpot Account
         continue-on-error: true
         run: |
-          stk login --client-id=$CLIENT_ID --client-key=$CLIENT_KEY --realm=$REALM
           echo $HOME
+          stk login --client-id=$CLIENT_ID --client-key=$CLIENT_KEY --realm=$REALM
           cat $HOME/.stk/logs/logs/log
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID}}
