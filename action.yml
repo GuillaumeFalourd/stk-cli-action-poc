@@ -24,7 +24,7 @@ runs:
       run: |
         if [[ "$(uname)" = "Linux" ]]; then
           curl -fsSL https://stk.stackspot.com/install.sh | bash
-          mv /home/runner/.stk/bin/* /usr/local/bin
+          # mv /home/runner/.stk/bin/* /usr/local/bin
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install.sh | bash
           mv /Users/runner/.stk/bin/* /usr/local/bin
