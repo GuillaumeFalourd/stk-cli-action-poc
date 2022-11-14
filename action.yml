@@ -39,6 +39,10 @@ runs:
           ./stk.exe upgrade
           mv stk.exe /bin 
         fi
+      shell: bash
+
+    - name: Login to StackSpot Account
+      run: |     
         stk upgrade
         stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}  
       shell: bash
