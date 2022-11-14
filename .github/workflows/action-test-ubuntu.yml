@@ -19,15 +19,14 @@ jobs:
     steps:
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
-
-      # - name: Setup upterm session
-      #   uses: lhotari/action-upterm@v1
-
-      - name: Login to StackSpot Account
-        continue-on-error: true
-        run: stk login --client-id=0716cdea-9638-4919-9842-21dd6c73729a --client-key=2O8n3XPCuQujVFqDYvLINKYhbkQOs58v --realm=zup
+        with:
+          client_id: ${{ secrets.CLIENT_ID }}
+          client_key: ${{ secrets.CLIENT_KEY }}
+          realm: ${{ secrets.REALM }}
 
       - run: stk --version
       
       - run: stk list stack
 
+      # - name: Setup upterm session
+      #   uses: lhotari/action-upterm@v1
