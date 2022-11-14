@@ -21,11 +21,16 @@ jobs:
         uses: GuillaumeFalourd/stk-cli-action-poc@main
 
       - name: Login to StackSpot Account
+        continue-on-error: true
         run: stk login --client-id=$CLIENT_ID --client-key=$CLIENT_KEY --realm=$REALM 
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID}}
           CLIENT_KEY: ${{ secrets.CLIENT_KEY}}
           REALM: ${{ secrets.REALM}}
+
+      - name: Check logs
+        if: always()
+        run: cat $HOME/.stk/logs/logs/log
 
       - run: stk --version
       
