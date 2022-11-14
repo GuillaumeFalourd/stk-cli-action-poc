@@ -22,15 +22,14 @@ jobs:
 
       - name: Login to StackSpot Account
         continue-on-error: true
-        run: stk login --client-id=$CLIENT_ID --client-key=$CLIENT_KEY --realm=$REALM 
+        run: |
+          stk login --client-id=$CLIENT_ID --client-key=$CLIENT_KEY --realm=$REALM
+          echo $HOME
+          cat $HOME/.stk/logs/logs/log
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID}}
           CLIENT_KEY: ${{ secrets.CLIENT_KEY}}
           REALM: ${{ secrets.REALM}}
-
-      - name: Check logs
-        if: always()
-        run: cat $HOME/.stk/logs/logs/log
 
       - run: stk --version
       
