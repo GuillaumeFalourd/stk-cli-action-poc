@@ -38,11 +38,8 @@ runs:
           curl https://stk.stackspot.com/installer/windows/stk.exe --output stk.exe
           ./stk.exe upgrade
           mv stk.exe /bin 
-        fi  
-      shell: bash
-
-    - name: Login to StackSpot Account
-      run: stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}
+        fi
+        stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}  
       shell: bash
 
 branding:
