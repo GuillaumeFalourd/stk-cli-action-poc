@@ -19,11 +19,14 @@ jobs:
     steps:
       - name: Run STK CLI installation
         uses: GuillaumeFalourd/stk-cli-action-poc@main
-      
+        with:
+          client_id: ${{ secrets.CLIENT_ID}}
+          client_key: ${{ secrets.CLIENT_KEY}}
+          realm: ${{ secrets.REALM}}
+
       - run: stk --version
       
-      - run: stk list
-        continue-on-error: true # until activation code not asked
+      - run: stk list stack
 
       # - name: Setup upterm session
       #   uses: lhotari/action-upterm@v1
