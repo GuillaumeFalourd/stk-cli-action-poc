@@ -25,7 +25,6 @@ runs:
         if [[ "$(uname)" = "Linux" ]]; then
           curl -fsSL https://stk.stackspot.com/install.sh | bash
           mv /home/runner/.stk/bin/* /usr/local/bin
-          stk upgrade &>/dev/null
         elif [[ "$(uname)" = "Darwin" ]]; then
           curl -fsSL https://stk.stackspot.com/install.sh | bash
           mv /Users/runner/.stk/bin/* /usr/local/bin
@@ -43,7 +42,9 @@ runs:
       shell: bash
 
     - name: Login to StackSpot Account
-      run: stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}  
+      run: |   
+        stk upgrade &>/dev/null
+        stk login --client-id=${{ inputs.client_id }} --client-key=${{ inputs.client_key }} --realm=${{ inputs.realm }}  
       shell: bash
 
 branding:
